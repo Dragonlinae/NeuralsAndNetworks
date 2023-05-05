@@ -154,9 +154,79 @@ img {
     transform: rotateY(-32deg) scale(0.95, 0.9);
 }
 
-.book.open .book-cover {
+.openbook.open .openbook-cover {
     transform: rotateY(-180deg);
     transition-delay: 0.12s;
+}
+
+.openbook-pages.open {
+    transform: scale(0.95, 0.9) rotateY(-180deg);
+    transition-delay: 0.12s;
+}
+
+.openbook {
+    width: 150px;
+    height: 214px;
+    position: relative;
+    perspective: 2000px;
+    z-index: 3;
+}
+
+.openbook-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.openbook-back {
+    background-color: #fe3a3c;
+}
+
+.openbook-inner,
+.openbook-pages,
+.openbook-pages {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: left center;
+    transition: transform 0.2s ease-in;
+}
+
+.openbook-pages {
+    transform: scale(0.95, 0.9);
+    perspective: 2000px;
+    background-color: #fff;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.075) 97%, transparent);
+    box-shadow: 1px 4px 5px 0 rgba(0, 0, 0, 0.05);
+}
+
+
+.openbook-cover {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.openbook-back,
+.openbook-pages {
+    right: 0;
+    bottom: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: scale(0.95, 0.9) rotate3d(1, 0, 0, 180deg);
+    z-index: 101;
+}
+
+.back.open {
+    transform: scale(0.95, 0.9) rotate3d(1, 0, 0, 180deg) rotateY(180deg);
 }
 
 .new-book {
